@@ -29,8 +29,9 @@ const Header = () => {
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        {navLinks.map((link) => (
+        {navLinks.map((link, i) => (
           <Link
+            key={i}
             href={link.path}
             className={`${
               pathname === link.path
