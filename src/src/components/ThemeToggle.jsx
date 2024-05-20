@@ -17,7 +17,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 mx-auto rounded-full bg-light-hover dark:bg-dark-hover"
+      className="flex items-center justify-center w-8 h-8 rounded-full bg-light-hover dark:bg-dark-hover"
     >
       {theme === "dark" ? (
         <FaSun className="text-yellow-500" />
