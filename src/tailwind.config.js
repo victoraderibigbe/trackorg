@@ -31,6 +31,21 @@ module.exports = {
           disabled: "#666666",
         },
       },
+      keyframes: {
+        gradient: {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+      },
+      animation: {
+        gradient: "gradient 2s ease infinite",
+      },
     },
   },
   plugins: [flowbite.plugin()],
