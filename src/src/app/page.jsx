@@ -1,14 +1,10 @@
 "use client";
 
+import DarkModeWrapper from "@/components/DarkModeWrapper";
 import Header from "@/components/Header";
-import Image from "next/image";
-import heroDark from "../../public/gifs/hero-dark.gif";
-import heroLight from "../../public/gifs/hero-light.gif";
-import useDarkMode from "@/hooks/useDarkMode";
+import HeroImage from "@/components/HeroImage";
 
-const page = () => {
-  const isDarkMode = useDarkMode();
-
+const Page = () => {
   return (
     <>
       <nav>
@@ -39,10 +35,13 @@ const page = () => {
               </button>
             </div>
             <div className="items-center justify-center hidden col-span-2 p-16 md:flex md:col-span-1">
-              <Image
-                src={isDarkMode ? heroDark : heroLight}
-                alt="Fingerprint gif"
-              />
+              <DarkModeWrapper>
+                {(isDarkMode) => (
+                  <div>
+                    <HeroImage isDarkMode={isDarkMode} />
+                  </div>
+                )}
+              </DarkModeWrapper>
             </div>
           </div>
         </section>
@@ -51,4 +50,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
