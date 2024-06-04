@@ -1,29 +1,32 @@
 "use client";
 
+import AboutImage from "@/components/AboutImage";
 import DarkModeWrapper from "@/components/DarkModeWrapper";
 import Header from "@/components/Header";
 import HeroImage from "@/components/HeroImage";
+import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 
 const Page = () => {
   return (
-    <>
-      <nav>
+    <div className="relative">
+      <nav className="sticky top-0 z-50">
         <Header />
       </nav>
 
-      <main className="p-2 md:p-10">
+      <main>
         {/* Hero Section */}
         <section>
           <div className="grid grid-cols-2">
             <div className="col-span-2 p-2 text-center md:col-span-1 md:p-32 md:text-start">
-              <h1 className="h-20 my-5 text-5xl font-bold text-transparent md:my-10 md:text-7xl bg-gradient-to-r from-purple-400 via-blue-500 to-light-accent bg-clip-text dark:from-dark-accent dark:to-yellow-500">
+              <h1 className="h-20 my-5 text-transparent md:my-10 bg-gradient-to-r from-purple-400 via-blue-500 to-light-accent bg-clip-text dark:from-dark-accent dark:to-yellow-500">
                 TrackOrg:
               </h1>
-              <h3 className="text-2xl font-semibold md:text-4xl text-light-text dark:text-dark-text">
+              <h3 className=" text-light-text dark:text-dark-text">
                 Automate your organization's register/attendance system with
                 ease.
               </h3>
-              <p className="my-5 text-sm md:my-10 text-balance md:text-lg">
+              <p>
                 TrackOrg uses biometric technology to streamline attendance and
                 registration systems in organizations. Its seamless integration,
                 real-time monitoring, and advanced analytics ensure efficient
@@ -45,8 +48,56 @@ const Page = () => {
             </div>
           </div>
         </section>
+
+        {/* About Section */}
+        <section className="p-2 mt-4 md:p-0 bg-light-secondary dark:bg-dark-secondary">
+          <div className="grid grid-cols-2">
+            <div className="items-center justify-center hidden col-span-2 p-16 md:flex md:col-span-1">
+              <DarkModeWrapper>
+                {(isDarkMode) => (
+                  <div>
+                    <AboutImage isDarkMode={isDarkMode} />
+                  </div>
+                )}
+              </DarkModeWrapper>
+            </div>
+            <div className="col-span-2 p-2 text-justify md:text-start md:col-span-1 md:p-32">
+              <h2 className="my-5 text-center md:text-start text-light-accent dark:text-dark-accent md:my-10">
+                About Us
+              </h2>
+              <p>
+                TrackOrg is at the forefront of revolutionizing organizational
+                attendance and registration systems through cutting-edge
+                biometric technology. Our mission is to simplify and enhance the
+                way organizations manage attendance, ensuring accuracy,
+                security, and efficiency.
+              </p>
+              <p>
+                With seamless integration into existing systems, real-time
+                monitoring capabilities, and advanced analytics, TrackOrg
+                provides a comprehensive solution for modern attendance
+                management. Our innovative approach helps organizations save
+                time, reduce errors, and gain valuable insights into attendance
+                patterns.
+              </p>
+              <p>
+                At TrackOrg, we are committed to delivering reliable and
+                user-friendly solutions that meet the evolving needs of
+                businesses and institutions. Join us in transforming the future
+                of attendance management.
+              </p>
+              <Link
+                href="/pages/about"
+                className="justify-center md:justify-start learn-more-link"
+              >
+                Learn More
+                <FaArrowRight className="arrow-right" />
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
-    </>
+    </div>
   );
 };
 
