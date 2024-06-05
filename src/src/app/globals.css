@@ -15,8 +15,16 @@
     @apply text-2xl md:text-4xl font-semibold;
   }
 
+  h4 {
+    @apply text-lg md:text-3xl font-semibold;
+  }
+
   p {
     @apply text-sm md:text-lg text-balance leading-normal tracking-normal my-5 md:my-10 text-light-text dark:text-dark-text;
+  }
+
+  .nav-btn {
+    @apply h-8 px-2 ml-2 rounded-lg bg-light-accent dark:bg-dark-accent hover:bg-light-accenthover dark:hover:bg-dark-accenthover text-dark-text flex items-center justify-center;
   }
 
   .learn-more-link {
@@ -29,5 +37,25 @@
 
   .learn-more-link:hover .arrow-right {
     @apply translate-x-2 transition;
+  }
+
+  .form-label {
+    @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
+  }
+
+  .form-input {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+  }
+
+  .check-box {
+    @apply w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800;
+  }
+
+  .check-label {
+    @apply ms-2 text-sm font-medium text-gray-900 dark:text-gray-300;
+  }
+
+  .form-btn {
+    @apply text-white bg-light-accent hover:bg-light-accenthover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-dark-accent dark:hover:bg-dark-accenthover;
   }
 }
