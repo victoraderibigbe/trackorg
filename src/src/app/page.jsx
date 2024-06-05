@@ -2,6 +2,7 @@
 
 import AboutImage from "@/components/AboutImage";
 import DarkModeWrapper from "@/components/DarkModeWrapper";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import HeroImage from "@/components/HeroImage";
 import ServicesImage from "@/components/ServicesImage";
@@ -11,9 +12,9 @@ import { FaArrowRight } from "react-icons/fa";
 const Page = () => {
   return (
     <div className="relative">
-      <nav className="sticky top-0 z-50">
+      <header className="sticky top-0 z-50">
         <Header />
-      </nav>
+      </header>
 
       <main>
         {/* Hero Section */}
@@ -153,6 +154,10 @@ const Page = () => {
           </div>
         </section>
       </main>
+
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 };
