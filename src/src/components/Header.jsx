@@ -23,9 +23,12 @@ const Header = () => {
       </Navbar.Brand>
       <div className="flex items-center md:order-2">
         <ThemeToggle />
-        <button className="h-8 px-2 ml-2 rounded-lg bg-light-accent dark:bg-dark-accent text-dark-text">
+        <Link href="/pages/login" className="hidden md:flex nav-btn">
+          Login
+        </Link>
+        <Link href="#" className="nav-btn">
           Get Started
-        </button>
+        </Link>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
@@ -42,6 +45,16 @@ const Header = () => {
             {link.label}
           </Link>
         ))}
+        <Link
+          href="/pages/login"
+          className={`${
+            pathname === "/pages/login"
+              ? "text-light-accent dark:text-dark-accent"
+              : ""
+          }`}
+        >
+          Login
+        </Link>
       </Navbar.Collapse>
     </Navbar>
   );
