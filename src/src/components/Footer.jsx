@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="p-5">
+    <div>
       <p className="text-center">
         &copy; {new Date().getFullYear()} TrackOrg. All rights reserved.
       </p>
