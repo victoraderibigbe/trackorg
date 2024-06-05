@@ -4,6 +4,7 @@ import AboutImage from "@/components/AboutImage";
 import DarkModeWrapper from "@/components/DarkModeWrapper";
 import Header from "@/components/Header";
 import HeroImage from "@/components/HeroImage";
+import ServicesImage from "@/components/ServicesImage";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 
@@ -93,6 +94,61 @@ const Page = () => {
                 Learn More
                 <FaArrowRight className="arrow-right" />
               </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section className="p-2 mt-4 md:p-0">
+          <div className="grid grid-cols-2">
+            <div className="col-span-2 p-2 text-justify md:text-start md:col-span-1 md:p-32">
+              <h2 className="my-5 text-center md:text-start text-light-accent dark:text-dark-accent md:my-10">
+                Our Services
+              </h2>
+              <p>
+                At TrackOrg, we provide state-of-the-art biometric attendance
+                systems that ensure accurate and secure tracking through
+                advanced fingerprint technology. Our solutions seamlessly
+                integrate with your existing HR systems, guaranteeing a smooth
+                transition and minimal disruption to your operations. Real-time
+                monitoring capabilities allow you to stay updated with instant
+                insights and notifications, enhancing your organization’s
+                responsiveness.
+              </p>
+              <p>
+                Our platform offers advanced analytics, delivering comprehensive
+                reports and dashboards to help you understand attendance
+                patterns, identify issues, and make informed decisions. We
+                understand that every organization has unique needs, which is
+                why we offer customizable solutions tailored to meet specific
+                requirements. Whether you are a small business or a large
+                enterprise, our flexible options ensure you get the most out of
+                our technology.
+              </p>
+              <p>
+                Security is our top priority at TrackOrg. We employ advanced
+                encryption and security protocols to protect your sensitive
+                information and ensure data confidentiality. Additionally, our
+                dedicated support team is always ready to assist you from
+                initial setup to ongoing maintenance, providing comprehensive
+                support to ensure your system operates flawlessly.
+              </p>
+              <Link
+                href="/pages/services"
+                className="justify-center md:justify-start learn-more-link"
+              >
+                Learn More
+                <FaArrowRight className="arrow-right" />
+              </Link>
+            </div>
+            <div className="items-center justify-center hidden col-span-2 p-16 md:flex md:col-span-1">
+              <DarkModeWrapper>
+                {(isDarkMode) => (
+                  <div>
+                    <ServicesImage isDarkMode={isDarkMode} />
+                  </div>
+                )}
+              </DarkModeWrapper>
             </div>
           </div>
         </section>
