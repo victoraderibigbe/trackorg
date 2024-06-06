@@ -47,7 +47,7 @@ const Header = () => {
         ))}
         <Link
           href="/pages/login"
-          className={`${
+          className={`flex md:hidden ${
             pathname === "/pages/login"
               ? "text-light-accent dark:text-dark-accent"
               : ""
