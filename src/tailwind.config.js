@@ -19,7 +19,6 @@ module.exports = {
           accent: "#2196f3",
           accenthover: "#158ff1",
           hover: "#e0e0e0",
-          alert: "#ff5722",
           disabled: "#cccccc",
         },
         dark: {
@@ -29,9 +28,9 @@ module.exports = {
           accent: "#4caf50",
           accenthover: "#3bb240",
           hover: "#333333",
-          alert: "#ff5722",
           disabled: "#666666",
         },
+        alert: "#ff5722",
       },
       keyframes: {
         gradient: {
