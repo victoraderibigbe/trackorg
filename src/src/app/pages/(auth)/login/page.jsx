@@ -14,7 +14,7 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import toast from "react-hot-toast";
 
-const page = () => {
+const LoginPage = () => {
   // States to handle password show/hide
   const [type, setType] = useState("password");
   const [placeholder, setPlaceholder] = useState("••••••••••");
@@ -51,8 +51,9 @@ const page = () => {
         .string("Enter your password")
         .required("Password is required"),
     }),
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       console.log(values);
+      resetForm({ values: "" }); // Clear form values
       toast.success(`Hello ${values.username}`);
     },
   });
@@ -187,4 +188,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default LoginPage;
