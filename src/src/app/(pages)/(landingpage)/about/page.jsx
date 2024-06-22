@@ -1,15 +1,15 @@
 import Header from "@/components/Header";
 
-const page = () => {
+const AboutPage = () => {
   return (
-    <>
+    <div>
       <nav>
         <Header />
       </nav>
 
-      <main>Services page</main>
-    </>
+      <main>About Page</main>
+    </div>
   );
 };
 
-export default page;
+export default AboutPage;

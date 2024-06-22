@@ -11,9 +11,9 @@ const Header = () => {
   const pathname = usePathname();
   const navLinks = [
     { label: "Home", path: "/" },
-    { label: "About", path: "/pages/about" },
-    { label: "Services", path: "/pages/services" },
-    { label: "FAQs", path: "/pages/faqs" },
+    { label: "About", path: "/about" },
+    { label: "Services", path: "/services" },
+    { label: "FAQs", path: "/faqs" },
   ];
 
   return (
@@ -23,10 +23,10 @@ const Header = () => {
       </Navbar.Brand>
       <div className="flex items-center md:order-2">
         <ThemeToggle />
-        <Link href="/pages/login" className="hidden md:flex nav-btn">
+        <Link href="/admin/login" className="hidden md:flex nav-btn">
           Login
         </Link>
-        <Link href="#" className="nav-btn">
+        <Link href="/admin/app-setup" className="nav-btn">
           Get Started
         </Link>
         <Navbar.Toggle />
@@ -46,9 +46,9 @@ const Header = () => {
           </Link>
         ))}
         <Link
-          href="/pages/login"
+          href="/admin/login"
           className={`flex md:hidden ${
-            pathname === "/pages/login"
+            pathname === "/admin/login"
               ? "text-light-accent dark:text-dark-accent"
               : ""
           }`}
