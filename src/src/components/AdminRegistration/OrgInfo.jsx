@@ -11,8 +11,8 @@ const OrgInfo = () => {
         Information
       </h4>
 
-      <div class="mb-5">
-        <label for="organizationName" class="form-label">
+      <div className="mb-5">
+        <label htmlFor="organizationName" className="form-label">
           Organization Name
         </label>
         <input
@@ -33,8 +33,8 @@ const OrgInfo = () => {
         ) : null}
       </div>
 
-      <div class="mb-5">
-        <label for="subdomain" class="form-label">
+      <div className="mb-5">
+        <label htmlFor="subdomain" className="form-label">
           Preferred Subdomain
         </label>
         <input
