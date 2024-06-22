@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import logo from "../../../../../public/trackorg.svg";
+import logo from "../../../../../../public/trackorg.svg";
 import ThemeToggle from "@/components/ThemeToggle";
 import DarkModeWrapper from "@/components/DarkModeWrapper";
 import RegisterImage from "@/components/RegisterImage";
@@ -170,7 +170,7 @@ const LoginPage = () => {
             </button>
 
             <div className="mt-3">
-              <Link href="/pages/register" className="text-sm font-medium">
+              <Link href="/admin/app-setup" className="text-sm font-medium">
                 Don't have an account?{" "}
                 <span className="text-light-accent dark:text-dark-accent">
                   Register

@@ -34,10 +34,12 @@ const Page = () => {
                 real-time monitoring, and advanced analytics ensure efficient
                 and secure attendance management.
               </p>
-              <button className="relative px-6 py-3 overflow-hidden text-lg font-bold transition rounded-xl text-light-primary dark:text-dark-text hover:opacity-90">
-                <span className="absolute inset-0 bg-gradient-to-r from-light-accent via-purple-500 to-pink-500 dark:from-dark-accent dark:via-green-500 dark:to-yellow-500 animate-gradient"></span>
-                <span className="relative z-10">Get Started</span>
-              </button>
+              <Link href="/admin/app-setup">
+                <button className="relative px-6 py-3 overflow-hidden text-lg font-bold transition rounded-xl text-light-primary dark:text-dark-text hover:opacity-90">
+                  <span className="absolute inset-0 bg-gradient-to-r from-light-accent via-purple-500 to-pink-500 dark:from-dark-accent dark:via-green-500 dark:to-yellow-500 animate-gradient"></span>
+                  <span className="relative z-10">Get Started</span>
+                </button>
+              </Link>
             </div>
             <div className="items-center justify-center hidden col-span-2 p-16 md:flex md:col-span-1">
               <DarkModeWrapper>
@@ -89,7 +91,7 @@ const Page = () => {
                 of attendance management.
               </p>
               <Link
-                href="/pages/about"
+                href="/about"
                 className="justify-center md:justify-start learn-more-link"
               >
                 Learn More
@@ -135,7 +137,7 @@ const Page = () => {
                 support to ensure your system operates flawlessly.
               </p>
               <Link
-                href="/pages/services"
+                href="/services"
                 className="justify-center md:justify-start learn-more-link"
               >
                 Learn More
