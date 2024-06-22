@@ -21,7 +21,10 @@ const initialValues = {
 const AdminForm = () => {
   const [step, setStep] = useState(0);
 
-  const steps = [<OrgInfo />, <PersonalInfo />];
+  const steps = [
+    <OrgInfo key="orgInfo" />,
+    <PersonalInfo key="personalInfo" />,
+  ];
 
   const isLastStep = step === steps.length - 1;
 

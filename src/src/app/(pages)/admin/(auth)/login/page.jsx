@@ -79,15 +79,15 @@ const LoginPage = () => {
         </div>
 
         <div className="flex items-center justify-center w-full col-span-2 p-5 md:p-10 rounded-xl bg-light-secondary dark:bg-dark-secondary md:col-span-1 md:w-3/4">
-          <form onSubmit={formik.handleSubmit} class="w-full mx-auto">
+          <form onSubmit={formik.handleSubmit} className="w-full mx-auto">
             <h3 className="text-light-text dark:text-dark-text">
               Welcome back!
             </h3>
             <h4 className="mb-5 text-light-accent dark:text-dark-accent">
               Sign in to your account
             </h4>
-            <div class="mb-5">
-              <label for="email" class="form-label">
+            <div className="mb-5">
+              <label for="email" className="form-label">
                 Your Username
               </label>
               <input
@@ -108,8 +108,8 @@ const LoginPage = () => {
               ) : null}
             </div>
 
-            <div class="mb-5">
-              <label for="password" class="form-label">
+            <div className="mb-5">
+              <label for="password" className="form-label">
                 Your password
               </label>
               <div className="flex">
@@ -138,20 +138,20 @@ const LoginPage = () => {
               ) : null}
             </div>
 
-            <div class="flex items-center justify-between mb-5">
+            <div className="flex items-center justify-between mb-5">
               <div>
                 <div className="flex items-start">
-                  <div class="flex items-center h-5">
+                  <div className="flex items-center h-5">
                     <input
                       id="rememberMe"
                       type="checkbox"
-                      class="check-box"
+                      className="check-box"
                       name="rememberMe"
                       checked={rememberMe}
                       onChange={() => setRememberMe(!rememberMe)}
                     />
                   </div>
-                  <label for="rememberMe" class="check-label">
+                  <label for="rememberMe" className="check-label">
                     Remember me
                   </label>
                 </div>
@@ -165,7 +165,7 @@ const LoginPage = () => {
                 </Link>
               </div>
             </div>
-            <button type="submit" class="form-btn">
+            <button type="submit" className="form-btn">
               Login
             </button>
 
