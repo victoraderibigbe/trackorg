@@ -3,26 +3,48 @@ import { useState } from "react";
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 
 const PersonalInfo = () => {
-  // States to handle password show/hide
-  const [type, setType] = useState("password");
-  const [placeholder, setPlaceholder] = useState("••••••••••");
-  const [icon, setIcon] = useState(
+  const [passwordType, setPasswordType] = useState("password");
+  const [confirmPasswordType, setConfirmPasswordType] = useState("password");
+  const [passwordPlaceholder, setPasswordPlaceholder] = useState("••••••••••");
+  const [confirmPasswordPlaceholder, setConfirmPasswordPlaceholder] =
+    useState("••••••••••");
+  const [passwordIcon, setPasswordIcon] = useState(
+    <VscEyeClosed size={25} color="#6B7280" className="absolute mr-10" />
+  );
+  const [confirmPasswordIcon, setConfirmPasswordIcon] = useState(
     <VscEyeClosed size={25} color="#6B7280" className="absolute mr-10" />
   );
 
-  // Function to toggle password show/hide
-  const handleToggle = () => {
-    if (type === "password") {
-      setIcon(<VscEye size={25} color="#6B7280" className="absolute mr-10" />);
-      setType("text");
-      setPlaceholder("Enter your password");
-    } else {
-      setIcon(
+  const handlePasswordToggle = () => {
+    setPasswordType((prevType) =>
+      prevType === "password" ? "text" : "password"
+    );
+    setPasswordPlaceholder((prevPlaceholder) =>
+      prevPlaceholder === "••••••••••" ? "Enter your password" : "••••••••••"
+    );
+    setPasswordIcon((prevIcon) =>
+      prevIcon.type === VscEyeClosed ? (
+        <VscEye size={25} color="#6B7280" className="absolute mr-10" />
+      ) : (
         <VscEyeClosed size={25} color="#6B7280" className="absolute mr-10" />
-      );
-      setType("password");
-      setPlaceholder("••••••••••");
-    }
+      )
+    );
+  };
+
+  const handleConfirmPasswordToggle = () => {
+    setConfirmPasswordType((prevType) =>
+      prevType === "password" ? "text" : "password"
+    );
+    setConfirmPasswordPlaceholder((prevPlaceholder) =>
+      prevPlaceholder === "••••••••••" ? "Enter your password" : "••••••••••"
+    );
+    setConfirmPasswordIcon((prevIcon) =>
+      prevIcon.type === VscEyeClosed ? (
+        <VscEye size={25} color="#6B7280" className="absolute mr-10" />
+      ) : (
+        <VscEyeClosed size={25} color="#6B7280" className="absolute mr-10" />
+      )
+    );
   };
 
   const { values, handleChange, handleBlur, touched, errors } =
@@ -37,7 +59,7 @@ const PersonalInfo = () => {
 
       <div class="mb-3 md:flex items-center justify-between gap-3">
         <div className="w-full mb-3 md:mb-0">
-          <label for="firstName" class="form-label">
+          <label htmlFor="firstName" class="form-label">
             First Name
           </label>
           <input
@@ -58,7 +80,7 @@ const PersonalInfo = () => {
           ) : null}
         </div>
         <div className="w-full">
-          <label for="lastName" class="form-label">
+          <label htmlFor="lastName" class="form-label">
             Last Name
           </label>
           <input
@@ -82,7 +104,7 @@ const PersonalInfo = () => {
 
       <div class="mb-3 md:flex items-center justify-between gap-3">
         <div className="w-full mb-3 md:mb-0">
-          <label for="phoneNumber" class="form-label">
+          <label htmlFor="phoneNumber" class="form-label">
             Phone Number
           </label>
           <input
@@ -103,7 +125,7 @@ const PersonalInfo = () => {
           ) : null}
         </div>
         <div className="w-full">
-          <label for="role" class="form-label">
+          <label htmlFor="role" class="form-label">
             Role
           </label>
           <input
@@ -123,24 +145,47 @@ const PersonalInfo = () => {
         </div>
       </div>
 
-      <div className="mb-3">
-        <label for="email" class="form-label">
-          Email
-        </label>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className={`${
-            touched.email && errors.email ? "invalid-input" : "valid-input"
-          }`}
-          name="email"
-          value={values.email}
-          onChange={handleChange}
-          onBlur={handleBlur}
-        />
-        {touched.email && errors.email ? (
-          <small className="text-alert">{errors.email}</small>
-        ) : null}
+      <div class="mb-3 md:flex items-center justify-between gap-3">
+        <div className="w-full mb-3 md:mb-0">
+          <label htmlFor="username" class="form-label">
+            Username
+          </label>
+          <input
+            type="text"
+            placeholder="Enter your username"
+            className={`${
+              touched.username && errors.username
+                ? "invalid-input"
+                : "valid-input"
+            }`}
+            name="username"
+            value={values.username}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+          {touched.username && errors.username ? (
+            <small className="text-alert">{errors.username}</small>
+          ) : null}
+        </div>
+        <div className="w-full">
+          <label htmlFor="email" class="form-label">
+            Email
+          </label>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            className={`${
+              touched.email && errors.email ? "invalid-input" : "valid-input"
+            }`}
+            name="email"
+            value={values.email}
+            onChange={handleChange}
+            onBlur={handleBlur}
+          />
+          {touched.email && errors.email ? (
+            <small className="text-alert">{errors.email}</small>
+          ) : null}
+        </div>
       </div>
 
       <div className="mb-3">
@@ -149,8 +194,8 @@ const PersonalInfo = () => {
         </label>
         <div className="flex">
           <input
-            type={type}
-            placeholder={placeholder}
+            type={passwordType}
+            placeholder={passwordPlaceholder}
             className={`${
               touched.password && errors.password
                 ? "invalid-input"
@@ -164,9 +209,9 @@ const PersonalInfo = () => {
           />
           <span
             className="flex items-center justify-around hover:cursor-pointer"
-            onClick={handleToggle}
+            onClick={handlePasswordToggle}
           >
-            {icon}
+            {passwordIcon}
           </span>
         </div>
         {touched.password && errors.password ? (
@@ -180,8 +225,8 @@ const PersonalInfo = () => {
         </label>
         <div className="flex">
           <input
-            type={type}
-            placeholder={placeholder}
+            type={confirmPasswordType}
+            placeholder={confirmPasswordPlaceholder}
             className={`${
               touched.confirmPassword && errors.confirmPassword
                 ? "invalid-input"
@@ -195,9 +240,9 @@ const PersonalInfo = () => {
           />
           <span
             className="flex items-center justify-around hover:cursor-pointer"
-            onClick={handleToggle}
+            onClick={handleConfirmPasswordToggle}
           >
-            {icon}
+            {confirmPasswordIcon}
           </span>
         </div>
         {touched.confirmPassword && errors.confirmPassword ? (

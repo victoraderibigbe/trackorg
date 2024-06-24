@@ -6,7 +6,7 @@ import Link from "next/link";
 import logo from "../../../../../../public/trackorg.svg";
 import DarkModeWrapper from "@/components/DarkModeWrapper";
 import RegisterImage from "@/components/RegisterImage";
-import AdminForm from "@/components/AdminRegistration/AdminForm";
+import AdminRegisterForm from "@/components/AdminAuth/AdminRegister/AdminRegisterForm";
 import Footer from "@/components/Footer";
 
 const AppSetup = () => {
@@ -32,7 +32,17 @@ const AppSetup = () => {
 
         <div className="w-full col-span-2 p-2 md:col-span-1 md:flex">
           <div className="flex items-center justify-center p-5 md:p-10 rounded-xl bg-light-secondary dark:bg-dark-secondary md:col-span-1 md:w-3/4">
-            <AdminForm />
+            <div className="w-full">
+              <AdminRegisterForm />
+              <div className="mt-3">
+                <Link href="/admin/login" className="text-sm font-medium">
+                  Already Registered?{" "}
+                  <span className="text-light-accent dark:text-dark-accent">
+                    Login
+                  </span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </main>

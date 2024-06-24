@@ -10,6 +10,7 @@ export const adminFormValidation = [
     lastName: Yup.string().required("Last name is required"),
     phoneNumber: Yup.string().required("Phone number is required"),
     role: Yup.string().required("Role is required"),
+    username: Yup.string().required("Username is required"),
     email: Yup.string().required("Email is required"),
     password: Yup.string()
       .required("Password is required")
@@ -18,5 +19,9 @@ export const adminFormValidation = [
       .required("Confirm password is required")
       .oneOf([Yup.ref("password"), null], "Passwords do not match"),
   }),
-  Yup.object(),
 ];
+
+export const adminLoginValidation = Yup.object({
+  username: Yup.string().required("Username is required"),
+  password: Yup.string().required("Password is required"),
+});
