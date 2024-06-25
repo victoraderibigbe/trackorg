@@ -20,42 +20,46 @@ export async function POST(NextRequest) {
       password,
     } = reqBody;
 
+    // Validate the input
+    if (
+      !organizationName ||
+      !subdomain ||
+      !firstName ||
+      !lastName ||
+      !phoneNumber ||
+      !role ||
+      !username ||
+      !email ||
+      !password
+    ) {
+      return NextResponse.json({
+        status: 400,
+        message: "All fields are required",
+      });
+    }
+
     // Check if admin with matching information exists
-    const user = await Admin.findOne({
+    const existingUser = await Admin.findOne({
       $or: [{ email }, { subdomain }, { username }, { phoneNumber }],
     });
 
-    if (user) {
-      // Check if the email exists
-      if (user.email === email) {
-        return NextResponse.json({
-          status: 400,
-          message: "Email already exists",
-        });
-      }
-      // Check if the subdomain exists
-      if (user.subdomain === subdomain) {
-        return NextResponse.json({
-          status: 400,
-          message: "Subdomain already exists",
-        });
-      }
-      // Check if the username exists
-      if (user.username === username) {
-        return NextResponse.json({
-          status: 400,
-          message: "Username already exists",
-        });
-      }
-      // Check if the phone number exists
-      if (user.phoneNumber === phoneNumber) {
-        return NextResponse.json({
-          status: 400,
-          message: "Phone number already exists",
-        });
+    if (existingUser) {
+      // Determine which field already exists and return the appropriate message
+      let message = "User already exists";
+      if (existingUser.email === email) {
+        message = "Email already exists";
+      } else if (existingUser.subdomain === subdomain) {
+        message = "Subdomain already exists";
+      } else if (existingUser.username === username) {
+        message = "Username already exists";
+      } else if (existingUser.phoneNumber === phoneNumber) {
+        message = "Phone number already exists";
       }
 
-      return NextResponse.json({ status: 400, message: "User already exists" });
+      return NextResponse.json({
+        status: 400,
+        message,
+      });
     }
 
     const newUser = new Admin({
@@ -70,12 +74,12 @@ export async function POST(NextRequest) {
       password,
     });
 
-    const saveUser = await newUser.save();
+    const savedUser = await newUser.save();
 
     return NextResponse.json({
       status: 200,
       message: "Registration successful",
-      saveUser,
+      user: savedUser,
     });
   } catch (error) {
     console.log("Error occurred: ", error);
